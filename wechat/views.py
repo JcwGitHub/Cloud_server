@@ -19,6 +19,8 @@ from wechat import consts
 from wechat import caches as wechat_caches
 from wechat.tasks import process_wechat_query_auth_code_test
 
+from wechatpy.utils import check_signature
+from wechatpy.exceptions import InvalidSignatureException
 
 common_logger = getLogger('django.request.common')
 
@@ -241,3 +243,17 @@ class WechatAuthSuccessPageView(APIView):
             expires_in
         )
         return HttpResponse('success')
+
+
+class WechatSetUp(APIView):
+    """
+    生成授权页面链接
+    """
+
+    def post(self, request, *args, **kwargs):
+        try:
+            check_signature('jcw', request.query_params['msg_signature'],
+                            request.query_params['timestamp'], request.query_params['nonce'])
+            return Response(request.query_params['echostr'])
+        except InvalidSignatureException:
+            return Response("false")

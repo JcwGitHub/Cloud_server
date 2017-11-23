@@ -27,5 +27,9 @@ urlpatterns = [
        r'^callback/?$',
        views.AuthEventProcessView.as_view(),
        name='wechat-component-verify-ticket'
-   )
+   ),
+    url(
+        r'^setup/?$',
+        views.WechatSetUp.as_view(),
+    )
 ]
