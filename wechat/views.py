@@ -252,7 +252,7 @@ class WechatSetUp(APIView):
 
     def post(self, request, *args, **kwargs):
         try:
-            check_signature('jcw', request.query_params['msg_signature'],
+            check_signature('weixin', request.query_params['msg_signature'],
                             request.query_params['timestamp'], request.query_params['nonce'])
             return Response(request.query_params['echostr'])
         except InvalidSignatureException:
