@@ -144,9 +144,9 @@ CACHES = {
 #==============================================================================
 # 微信第三方平台配置
 #==============================================================================
-COMPONENT_APP_ID = 'app_id'
-COMPONENT_APP_SECRET = '0c79eferferfeferf0cc0be99b20a18faeb'
-COMPONENT_APP_TOKEN = 'srgewgegerferf'
+COMPONENT_APP_ID = 'wxa7cfcb995b068d93'
+COMPONENT_APP_SECRET = 'c21c8b3def5721f140bab4f3ccf7f873'
+COMPONENT_APP_TOKEN = 'jcw'
 COMPONENT_ENCODINGAESKEY = 'bz5LSXhcaIBIBKJWZpk2tRl4fiBVbfPN5VlYgwXKTwp'
 # 公众号授权链接，大括号中是需要替换的部分
 AUTH_URL = (
