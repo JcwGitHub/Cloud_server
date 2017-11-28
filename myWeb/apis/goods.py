@@ -10,7 +10,7 @@ from django.core.serializers import serialize
 
 
 import os
-from myWeb.settings import STATIC_ROOT
+from myWeb.settings import STATIC_GOODS_ICON
 
 
 def goodslist(request):
@@ -25,10 +25,15 @@ def goodslist(request):
     return gresponcache.error()
 
 
-def goodsicon(request,goodsid):
-    imagepath = os.path.join(STATIC_ROOT,'1.jpg')
-
-    image_data = open(imagepath, "rb").read()
-
-    return HttpResponse(image_data,content_type="image/jpg")
-    pass
+def goodsicon(request):
+    _rm = requestpmanage(request)
+    if _rm.ispost:
+        goodsid = _rm.getvalue('goodsid')
+        goodsname = str(goodsid)+".png"
+        imagepath = os.path.join(STATIC_GOODS_ICON, goodsname)
+        if os.path.exists(imagepath):
+            print(imagepath)
+            image_data = open(imagepath, "rb").read()
+            return HttpResponse(image_data, content_type="image/jpg")
+        else:
+            return gresponcache.error()

@@ -34,9 +34,9 @@ urlpatterns = [
     url(r'^auth/login',user.auth_login),
     url(r'^auth/updateheadimage', user.auth_changeheadimage),
 #goods
-    url(r'^getDollList/$', HomeView.getList, name='getList'),
+    url(r'^getDollList', HomeView.getList, name='getList'),
     url(r'^goods/list',goods.goodslist),
-    url(r'^image/(?P<goodsid>.+)/$', goods.goodsicon),
+    url(r'^goods/icon', goods.goodsicon),
 
 #controll
     url(r'^admin/', admin.site.urls),

@@ -138,6 +138,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_GOODS_ICON = os.path.join(BASE_DIR, 'goods_icon')
 print (STATIC_ROOT)
 STATICFILES_DIRS = (
     ('image', os.path.join(STATIC_ROOT, 'image').replace('\\', '/')),
