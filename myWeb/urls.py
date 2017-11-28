@@ -32,15 +32,12 @@ urlpatterns = [
     url(r'^auth/createaccount', user.auth_createaccount),
     url(r'^auth/logout', user.auth_logout),
     url(r'^auth/login',user.auth_login),
-
+    url(r'^auth/updateheadimage', user.auth_changeheadimage),
 #goods
+    url(r'^getDollList/$', HomeView.getList, name='getList'),
     url(r'^goods/list',goods.goodslist),
+    url(r'^image/(?P<goodsid>.+)/$', goods.goodsicon),
 
 #controll
     url(r'^admin/', admin.site.urls),
-    url(r'^getDollList/$', HomeView.getList, name='getList'),
-
-#image
-    url(r'^image/(?P<goodsid>.+)/$', goods.goodsicon),
-    url(r'^auth/updateheadimage', user.auth_changeheadimage),
 ]
