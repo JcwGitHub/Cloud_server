@@ -18,7 +18,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from .apis import user,goods
+from .apis import user,goods,wechatInterface
 from  homepage import views as HomeView
 
 
@@ -40,4 +40,12 @@ urlpatterns = [
 
 #controll
     url(r'^admin/', admin.site.urls),
+
+
+
+
+
+
+#wechat
+    url(r'^wechat/',wechatInterface.weixin_main),
 ]
