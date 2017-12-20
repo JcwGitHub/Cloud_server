@@ -39,7 +39,7 @@ urlpatterns = [
     url(r'^goods/icon', goods.goodsicon),
 
 #controll
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin', admin.site.urls),
 
 
 
@@ -47,5 +47,5 @@ urlpatterns = [
 
 
 #wechat
-    url(r'^wechat/',wechatInterface.weixin_main),
+    url(r'^wechat',wechatInterface.weixin_main),
 ]

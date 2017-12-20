@@ -1,9 +1,9 @@
-import hashlib
+﻿import hashlib
 
 from django.http import HttpResponse
 from django.utils.encoding import smart_str
 from django.views.decorators.csrf import csrf_exempt
-
+from django.shortcuts import render
 WEIXIN_TOKEN = 'jcwjcwjcw'
 
 @csrf_exempt
@@ -18,10 +18,14 @@ def weixin_main(request):
         tmp_list.sort()
         tmp_str = "%s%s%s" % tuple(tmp_list)
         tmp_str = hashlib.sha1(tmp_str).hexdigest()
+    	print("23123131")
         if tmp_str == signature:
+            print("23123131")
             return HttpResponse(echostr)
         else:
+            print("error")
             return HttpResponse("weixin  index")
     else:
         xml_str = smart_str(request.body)
-        return HttpResponse("asdasdad")
+        print(xml_str)
+        return render(request, "templates.Html1.html")
